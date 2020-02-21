@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import About from './components/About';
+import Contact from './components/Contact';
+// import Home from './components/Home';
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+
+class Quote_App extends Component {
+  render(){
+    return (
+      <BrowserRouter>
+      <div className="Quote_App">
+        <Navbar />
+        <Route path='/about' component={About} />
+        <Route path='/contact' component={Contact} />
+
+      </div>
+      </BrowserRouter>
+    );
+  }
+  
 }
 
-export default App;
+export default Quote_App;
