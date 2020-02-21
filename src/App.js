@@ -30,7 +30,7 @@ class Quote_App extends Component {
         <Navbar />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
-        <Quotes quotes={this.state.quotes} />
+        {/* <Quotes quotes={this.state.quotes} /> */}
         <AddQuote addQuote={this.addQuote} />
       </div>
       </BrowserRouter>
