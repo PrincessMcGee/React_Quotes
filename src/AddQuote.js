@@ -6,31 +6,37 @@ class AddQuote extends Component {
         author: null,
         citetext: null,
     }
+    handleChange = (e) => {
+        this.setState({
+            content: e.target.value
+        })
+    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addQuote(this.state);
+        this.setState({
+            title: '',
+            author: '',
+            citetext: '',
+        })
+    }
+    
+    render() {
+        return(
+            <div>
+                <form onSubmit ={this.handleSubmit}>
+                    <label htmlFor="title">Title</label>
+                    <input type="text" id="title" onChange={this.handleChange} value={this.state.title} />
+                    <label htmlFor="author">Author</label>
+                    <input type="text" id="author" onChange={this.handleChange} value={this.state.author}/>
+                    <label htmlFor="citetext">Citetext</label>
+                    <input type="text" id="citetext" onChange={this.handleChange} value={this.state.citetext}/>
+                </form>
+            </div>
+        )
+    }
 }
 
-handleChange = (e) => {
-    this.setState({
-        [e.target.id]: e.target.value
-    })
-}
 
-handleSubmit = (e) => {
-    e.prevent.default();
-    this.props.addQuote(this.state);
-    this.setState({
-        content: ''
-    })
-}
-
-render(); {
-    return(
-        <div>
-            <form onSubmit ={this.handleSubmit}>
-                <label>Add new quote:</label>
-                <input type="text" onChange={this.handleChange} value={this.state.content} />
-            </form>
-        </div>
-    )
-}
 
 export default AddQuote
