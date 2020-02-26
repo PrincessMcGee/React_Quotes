@@ -8,7 +8,7 @@ class AddQuote extends Component {
     }
     handleChange = (e) => {
         this.setState({
-            content: e.target.value
+            [e.target.id]: e.target.value
         })
     }
     handleSubmit = (e) => {
@@ -20,17 +20,17 @@ class AddQuote extends Component {
             citetext: '',
         })
     }
-    
     render() {
         return(
             <div>
-                <form onSubmit ={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={this.handleChange} value={this.state.title} />
                     <label htmlFor="author">Author</label>
                     <input type="text" id="author" onChange={this.handleChange} value={this.state.author}/>
                     <label htmlFor="citetext">Citetext</label>
                     <input type="text" id="citetext" onChange={this.handleChange} value={this.state.citetext}/>
+                    <button>Submit</button>
                 </form>
             </div>
         )

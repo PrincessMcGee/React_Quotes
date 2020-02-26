@@ -5,6 +5,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 // import Home from './components/Home';
 import AddQuote from './AddQuote';
+import Quotes from './components/Quotes';
 
 class Quote_App extends Component {
   state = {
@@ -23,6 +24,14 @@ class Quote_App extends Component {
       quotes: quotes
     })
   }
+  deleteQuote = (id) => {
+    let quotes = this.state.quotes.filter(quote => {
+      return quote.id !== id
+    });
+    this.setState({
+      quotes: quotes
+    })
+  }
   render(){
     return (
       <BrowserRouter>
@@ -30,7 +39,7 @@ class Quote_App extends Component {
         <Navbar />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
-        {/* <Quotes quotes={this.state.quotes} /> */}
+        <Quotes deleteQuote={this.deleteQuote} quotes={this.state.quotes} />
         <AddQuote addQuote={this.addQuote} />
       </div>
       </BrowserRouter>
